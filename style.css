@@ -23,6 +23,7 @@ body{
     margin-top:278px;
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 .rtxt,
