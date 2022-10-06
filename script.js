@@ -36,32 +36,3 @@ function playRound(cc,uc){
         return false;
     }
 }
-
-
-function game(){
-    
-    let uCount=0, cCount=0;
-    for (i =0;i<5;++i){
-        let cc=getComputerChoice();
-        let uc = prompt("Enter your choice");
-        uc = uc.toLowerCase();
-        if (cc===uc){
-            console.log("IT was a tie.");
-            uCount++;
-            cCount++;
-        }
-        else{
-            let x = console.log(playRound(cc,uc));
-            if (x)
-                uCount++;
-            else
-                cCount++;
-        }
-    }
-    if (uCount>cCount)
-        console.log("YOU WON THE GAME");
-    else
-        console.log("YOU LOST THE GAME");
-}
-
-game();
