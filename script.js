@@ -49,17 +49,15 @@ options.forEach((option)=>{
         if (uscore<5&&cscore<5){
         if (ans===true){
             uscore++;
-            x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
         }
         else if (ans===false){
             cscore++;
-            x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
         }
         else {
             cscore++;
             uscore++;
-            x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
         }
+        x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
     }
         if (uscore===5){
             x.textContent="YOU WON THE GAME!";
