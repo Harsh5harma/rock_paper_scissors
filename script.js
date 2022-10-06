@@ -3,8 +3,6 @@ function getComputerChoice(){
     return puterChoice;
 }
 function playRound(cc,uc){
-    let r = document.createElement('div');
-    r.className="result";
     let strC;
     if (cc===1)
         strC="rock";
@@ -12,44 +10,61 @@ function playRound(cc,uc){
         strC="paper";
     else if (cc===3)
         strC="scissor";
-    if (uc===strC)
-        r.textContent="Tie";
-    else if (uc==="rock"&&strC==="paper"){
-        r.textContent="Computer won! Paper beats rock" ;
+
+    if (uc==="rock"&&strC==="paper"){
+        return false;
     }
     else if (uc==="rock"&&strC==="scissor"){
-        r.textContent= `You win rock beats scissor`;
+        return true;
     }
     else if (uc==="paper"&&strC==="scissor"){
-        r.textContent="You lose! Scissor beats paper!";
+        return false;
     }
     else if (uc==="paper"&&strC==="rock"){
-        r.textContent="You win! paper beats rock!";
+        return true;
     }
     else if (uc==="scissor"&&strC==="paper"){
-        r.textContent= "You win! scissor beats paper";
+        return true;
     }
     else if (uc==="scissor"&&strC==="rock"){
-        r.textContent="You lose! rock beats scissor";
+        return false;
     }
-    result = document.querySelector('.result');
-    result.appendChild(r);
 }
 
-const options = document.querySelectorAll('button');
+const rock=document.querySelector(".rock");
+const paper=document.querySelector(".paper");
+const scissor=document.querySelector(".scissor");
+const options=[rock,paper,scissor];
+
 let uc="";
+let cscore=0;
+let uscore=0;
 options.forEach((option)=>{
     option.addEventListener('click',()=>{
         const x = document.querySelector(".result");
-        x.innerHTML="The result is: ";
+        x.innerHTML="";
         uc = option.className;
-        console.log(uc);
         let cc = getComputerChoice();
-        console.log(cc);
-        playRound(cc,uc);
+        let ans = playRound(cc,uc);
+        if (uscore<5&&cscore<5){
+        if (ans===true){
+            uscore++;
+            x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
+        }
+        else if (ans===false){
+            cscore++;
+            x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
+        }
+        else {
+            cscore++;
+            uscore++;
+            x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
+        }
+    }
+        if (uscore===5){
+            x.textContent="YOU WON THE GAME!";
+        }else if (cscore===5){
+            x.textContent="OOPS YOU LOST. Try again?";
+        }
     });
-    
 });
-
-
-
