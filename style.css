@@ -1,0 +1,74 @@
+
+/*{
+    border:1px;
+}*/
+body{
+    background-image: url(images/bg.gif);
+
+    display: flex;
+    flex-direction: column;
+    flex: 1,1,auto;
+}
+.header{
+    margin-top:32px;
+    color: #ffffff;
+    font-family: 'Irish Grover';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 64px;
+    text-align: center;
+
+}
+.content{
+    margin-top:278px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.rtxt,
+.ptxt,
+.stxt{
+    margin-top:9px;
+    text-align: center;
+    font-size:48px;
+    font-weight: 400;
+    font-style: oblique;
+}
+.rock,
+.paper,
+.scissor{
+    display:flex;
+    flex-direction: column;
+    color:#ffffff;
+}
+
+
+.result{
+    color:#ffffff;
+    text-align: center;
+    font-weight:400;
+    font-size:48px;
+    margin-top: 124px;
+}
+.subRock,
+.subPaper,
+.subScissor{
+    display: flex;
+    flex-direction: column;
+}
+.simg,
+.pimg,
+.rimg{
+    width:300px;
+    height:300px;
+}
+.rock{
+    margin-left:345px;
+}
+.scissor{
+    margin-right:346px;
+}
+img{
+    width:300px;
+    height:300px;
+}

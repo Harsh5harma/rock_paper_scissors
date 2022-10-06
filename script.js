@@ -4,6 +4,7 @@ function getComputerChoice(){
 }
 function playRound(cc,uc){
     let r = document.createElement('div');
+    r.className="result";
     let strC;
     if (cc===1)
         strC="rock";
@@ -33,19 +34,21 @@ function playRound(cc,uc){
     }
     result = document.querySelector('.result');
     result.appendChild(r);
-    
 }
 
 const options = document.querySelectorAll('button');
 let uc="";
 options.forEach((option)=>{
     option.addEventListener('click',()=>{
+        const x = document.querySelector(".result");
+        x.innerHTML="The result is: ";
         uc = option.className;
         console.log(uc);
         let cc = getComputerChoice();
         console.log(cc);
         playRound(cc,uc);
     });
+    
 });
 
 
