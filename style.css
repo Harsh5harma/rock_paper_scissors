@@ -38,10 +38,19 @@ body{
 .paper,
 .scissor{
     display:flex;
+    transition: transform .08s;
     flex-direction: column;
     color:#ffffff;
 }
-
+.rock:hover{
+    transform:scale(1.1);
+}
+.paper:hover{
+    transform:scale(1.1);
+}
+.scissor:hover{
+    transform: scale(1.1);
+}
 
 .result{
     color:#ffffff;
