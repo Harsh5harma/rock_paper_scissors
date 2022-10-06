@@ -1,8 +1,9 @@
 function getComputerChoice(){
-    let puterChoice = Math.floor(Math.random()*3);
+    let puterChoice = Math.ceil(Math.random()*3);
     return puterChoice;
 }
 function playRound(cc,uc){
+    let r = document.createElement('div');
     let strC;
     if (cc===1)
         strC="rock";
@@ -10,29 +11,42 @@ function playRound(cc,uc){
         strC="paper";
     else if (cc===3)
         strC="scissor";
-
-     if (uc==="rock"&&strC==="paper"){
-        console.log("Computer won! Paper beats rock") ;
-        return false;
+    if (uc===strC)
+        r.textContent="Tie";
+    else if (uc==="rock"&&strC==="paper"){
+        r.textContent="Computer won! Paper beats rock" ;
     }
     else if (uc==="rock"&&strC==="scissor"){
-        console.log( `You win rock beats scissor`);
-        return true;
+        r.textContent= `You win rock beats scissor`;
     }
     else if (uc==="paper"&&strC==="scissor"){
-        console.log("You lose! Scissor beats paper!");
-        return false;
+        r.textContent="You lose! Scissor beats paper!";
     }
     else if (uc==="paper"&&strC==="rock"){
-        console.log ("You win! paper beats rock!");
-        return true;
+        r.textContent="You win! paper beats rock!";
     }
     else if (uc==="scissor"&&strC==="paper"){
-        console.log( "You win! scissor beats paper");
-        return true;
+        r.textContent= "You win! scissor beats paper";
     }
     else if (uc==="scissor"&&strC==="rock"){
-        console.log ("You lose! rock beats scissor");
-        return false;
+        r.textContent="You lose! rock beats scissor";
     }
+    result = document.querySelector('.result');
+    result.appendChild(r);
+    
 }
+
+const options = document.querySelectorAll('button');
+let uc="";
+options.forEach((option)=>{
+    option.addEventListener('click',()=>{
+        uc = option.className;
+        console.log(uc);
+        let cc = getComputerChoice();
+        console.log(cc);
+        playRound(cc,uc);
+    });
+});
+
+
+
