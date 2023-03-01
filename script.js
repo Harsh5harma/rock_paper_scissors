@@ -59,7 +59,9 @@ options.forEach((option)=>{
         }
         x.textContent=`Your Score: ${uscore}  Computer Score: ${cscore}`;
     }
-        if (uscore===5){
+        if (uscore===5 && cscore===5){
+            x.textContent="IT WAS A TIE";
+        }else if (uscore===5){
             x.textContent="YOU WON THE GAME!";
         }else if (cscore===5){
             x.textContent="OOPS YOU LOST. Try again?";
